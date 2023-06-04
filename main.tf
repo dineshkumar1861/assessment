@@ -1,7 +1,5 @@
 provider "aws" {
-    region     = "${var.region}"
-    access_key = "${var.access_key}"
-    secret_key = "${var.secret_key}"
+    region     = "ap-southeast-1"
 }			
 ############ Creating Security Group for EC2 & ELB ############
 
