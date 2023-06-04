@@ -13,7 +13,7 @@ pipeline {
         stage('checkout') {
             steps {
                  script{
-                        dir("terraform")
+                        dir("RGA-DevOps-Assessment")
                         {
                             git "https://github.com/dineshkumar1861/assessment.git"
                         }
