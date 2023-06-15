@@ -36,7 +36,7 @@ resource "aws_instance" "web-server" {
         yum install httpd -y
         systemctl start httpd
         systemctl enable httpd
-        echo "<html><h1> Welcome to Dinesh Kumar Page.This is a IDP Assessment Simulation $(hostname -f)...</p> </h1></html>" >> /var/www/html/index.html
+        echo "<html><h1> Welcome to Dinesh Kumar Page.This is a RGA Interview Assessment Simulation $(hostname -f)...</p> </h1></html>" >> /var/www/html/index.html
         EOF
     tags = {
         Name = "instance-${count.index}"
