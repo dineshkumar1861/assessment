@@ -31,13 +31,12 @@ resource "aws_instance" "web-server" {
     security_groups = ["${aws_security_group.web-server.name}"]
     user_data = <<-EOF
        #!/bin/bash
-       sudo su
+        sudo su
         yum update -y
-        yum install httpd -y
-        systemctl start httpd
-        systemctl enable httpd
-        echo "<html><h1> Welcome to Dinesh Kumar Page.This is a IDP Simulation $(hostname -f)...</p> </h1></html>" >> /var/www/html/index.html
-        EOF
+        yum install -y docker
+        service docker start
+        docker pull bkimminich/juice-shop
+        docker run -d -p 80:3000 bkimminich/juice-shop      
     tags = {
         Name = "instance-${count.index}"
     }
