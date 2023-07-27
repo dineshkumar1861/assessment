@@ -30,14 +30,14 @@ resource "aws_instance" "web-server" {
     key_name        = "rga2"
     security_groups = ["${aws_security_group.web-server.name}"]
     user_data = <<-EOF
-       #!/bin/bash
+        #!/bin/bash
         sudo su
         yum update -y
         yum install -y docker
         service docker start
         docker pull bkimminich/juice-shop
         docker run -d -p 80:3000 bkimminich/juice-shop
-        EOF
+        EOF  
     tags = {
         Name = "instance-${count.index}"
     }
